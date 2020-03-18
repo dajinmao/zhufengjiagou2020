@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        hello app  {{msg}}
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+        el: '#app',
+        //vue中渲染数据的方式 ：1、render 2、模板template,将template编译成render方法
+        //先渲染render,后渲染template,最后渲染标签中的数据
+        // template:'<div>hello template</div>',
+        // render(h){
+        //     return h('div',['hello render'])  
+        // },
+        data(){
+            return {
+                msg: 'msg'
+            }
+        }
+    })
+    
+    </script>
+</body>
+</html>

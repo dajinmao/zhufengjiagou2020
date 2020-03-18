@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>vue核心概念</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 当前这个表达式最后会被编译成函数,不能放js语法，因为最后会将返回值传递给函数 -->
+        {{msg.b}}    
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+        el: '#app',
+        data(){
+            return {
+                msg: {
+                    a:1,
+                    b:undefined
+                }
+            }
+        }
+    })
+    vm.msg.b=99;
+    
+    </script>
+</body>
+</html>

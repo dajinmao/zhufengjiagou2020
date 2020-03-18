@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>vue核心概念</title>
+</head>
+<body>
+    <div id="app">
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        let vm = new Vue({
+        // el: '#app',
+        template:'<div>{{msg}}</div>',
+        data(){
+            return {
+                msg: 'vm.mount'
+            }
+        }
+    })
+    //vue中的实例常见属性
+    vm.$mount(); //相当于el:’#app‘,如果不传递参数，表示我要手动挂载，可以挂载到任何地方;
+    //如果有参数，就是挂载到指定的dom元素上 vm.$mount('#app')
+    document.body.appendChild(vm.$el);
+
+    //vm.$options: 包括用户传入组件实例的所有属性和Vue中的内置属性和指令
+    
+    //queueWatcher Vue是批量更新，只执行监控一次，输出最后一个
+    vm.$watch('msg', function(newVal,oldVal){
+        console.log(oldVal + '    ' + newVal);
+    })
+    vm.msg = 'bye';
+    vm.msg='999';
+    vm.msg='000';//只输出最后一个
+    
+    </script>
+</body>
+</html>
